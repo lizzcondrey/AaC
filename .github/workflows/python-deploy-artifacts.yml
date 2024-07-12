@@ -23,7 +23,7 @@ jobs:
     needs: build_deployment_artifacts
     steps:
       - name: Download Python Wheel
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: aac_wheel
           path: python/dist/
