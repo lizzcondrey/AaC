@@ -28,8 +28,8 @@ updates:
           - "pytz"
       workflows:
         applies-to: version-updates
-          patterns:
-            - "actions/*"
+        patterns:
+          - "actions/*"
 
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
