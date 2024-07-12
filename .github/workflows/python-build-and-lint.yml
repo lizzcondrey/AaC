@@ -31,7 +31,7 @@ jobs:
         run: python setup.py bdist_wheel
 
       - name: Upload Python Wheel
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: aac_wheel
           path: python/dist/
@@ -43,7 +43,7 @@ jobs:
           sphinx-build source doc_artifacts
 
       - name: Upload Documentation
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: aac-documentation
           path: |
@@ -55,7 +55,7 @@ jobs:
           make -C ../docs/ simplepdf
 
       - name: Upload PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: aac-documentation-pdf
           path: |
