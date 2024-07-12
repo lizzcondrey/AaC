@@ -26,10 +26,6 @@ updates:
           - "docutils"
           - "myst-parser"
           - "pytz"
-      workflows:
-        applies-to: version-updates
-        patterns:
-          - "actions/*"
 
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
@@ -42,3 +38,9 @@ updates:
     labels:
       - "security"
       - "dependencies"
+    versioning-strategy: increase
+    groups:
+      workflows:
+        applies-to: version-updates
+        patterns:
+          - "actions/*"
