@@ -30,10 +30,14 @@ jobs:
       - name: Build distribution package
         run: python setup.py bdist_wheel
 
+      - name: Get Package Version
+        id: aac-version
+        run: python -m aac version
+
       - name: Upload Python Wheel
         uses: actions/upload-artifact@v4
         with:
-          name: aac_wheel
+          name: aac_{{steps.aac-version.output}}_wheel
           path: python/dist/
 
       - name: Build Documentation
@@ -45,7 +49,7 @@ jobs:
       - name: Upload Documentation
         uses: actions/upload-artifact@v4
         with:
-          name: aac-documentation
+          name: aac_{{steps.aac-version.output}}_documentation
           path: |
             python/docs/doc_artifacts/api
             python/docs/doc_artifacts/project_documentation
@@ -57,6 +61,6 @@ jobs:
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
-          name: aac-documentation-pdf
+          name: aac_{{steps.aac-version.output}}_documentation_pdf
           path: |
             docs/docs/simplepdf/Architecture-as-Code.pdf
