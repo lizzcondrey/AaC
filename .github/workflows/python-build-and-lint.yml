@@ -21,7 +21,7 @@ jobs:
           python-version: 3.11
 
       - name: Install the ${{ github.event.repository.name }} Package
-        run: pip install ${{ github.event.repository.name }} -e .[all]
+        run: pip install -e .[all]
 
       - name: Lint with flake8
         run: flake8 .
