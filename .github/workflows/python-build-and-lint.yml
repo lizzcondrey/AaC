@@ -9,8 +9,7 @@ jobs:
   build_python_artifacts:
     name: Build Artifacts
     runs-on: ubuntu-22.04
-    # outputs:
-    #   version_string: ${{ steps.aac-version.outputs.version_string }}
+    
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
