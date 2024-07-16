@@ -35,7 +35,7 @@ jobs:
       - name: Get ${{ github.event.repository.name }} Package Version
         id: package-version
         run: |
-          VERSION=$(python -m aac version)
+          VERSION=$(pip show ${{ github.event.repository.name }} | grep Version | cut -f 2 -d " ")
           echo VERSION_STRING=$VERSION >> $GITHUB_OUTPUT
 
       - name: Upload Python Wheel
