@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.11
 
@@ -30,10 +30,14 @@ jobs:
       - name: Build distribution package
         run: python setup.py bdist_wheel
 
+      - name: Get Package Version
+        id: aac-version
+        run: python -m aac version
+
       - name: Upload Python Wheel
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: aac_wheel
+          name: aac_{{steps.aac-version.output}}_wheel
           path: python/dist/
 
       - name: Build Documentation
@@ -43,9 +47,9 @@ jobs:
           sphinx-build source doc_artifacts
 
       - name: Upload Documentation
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: aac-documentation
+          name: aac_{{steps.aac-version.output}}_documentation
           path: |
             python/docs/doc_artifacts/api
             python/docs/doc_artifacts/project_documentation
@@ -55,8 +59,8 @@ jobs:
           make -C ../docs/ simplepdf
 
       - name: Upload PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          name: aac-documentation-pdf
+          name: aac_{{steps.aac-version.output}}_documentation_pdf
           path: |
             docs/docs/simplepdf/Architecture-as-Code.pdf
