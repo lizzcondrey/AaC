@@ -9,8 +9,8 @@ jobs:
   build_python_artifacts:
     name: Build Artifacts
     runs-on: ubuntu-22.04
-    outputs:
-      version_string: ${{ steps.aac-version.outputs.version_string }}
+    # outputs:
+    #   version_string: ${{ steps.aac-version.outputs.version_string }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -34,12 +34,13 @@ jobs:
 
       - name: Get Package Version
         id: aac-version
-        run: echo "version_string=$(python -m aac version)" >> $GITHUB_OUTPUT
+        run: |
+          echo "version_string=$(python -m aac version)" >> $GITHUB_ENV
 
       - name: Upload Python Wheel
         uses: actions/upload-artifact@v4
         with:
-          name: aac_${{steps.aac-version.outputs.version_string}}_wheel
+          name: aac_${{env.version_string}}_wheel
           path: python/dist/
 
       - name: Build Documentation
