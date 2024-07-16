@@ -20,8 +20,8 @@ jobs:
         with:
           python-version: 3.11
 
-      - name: Install the AaC Package
-        run: pip install aac -e .[all]
+      - name: Install the ${{ github.event.repository.name }} Package
+        run: pip install ${{ github.event.repository.name }} -e .[all]
 
       - name: Lint with flake8
         run: flake8 .
@@ -32,8 +32,8 @@ jobs:
       - name: Build distribution package
         run: python setup.py bdist_wheel
 
-      - name: Get Package Version
-        id: aac-version
+      - name: Get ${{ github.event.repository.name }} Package Version
+        id: package-version
         run: |
           VERSION=$(python -m aac version)
           echo VERSION_STRING=$VERSION >> $GITHUB_OUTPUT
@@ -41,7 +41,7 @@ jobs:
       - name: Upload Python Wheel
         uses: actions/upload-artifact@v4
         with:
-          name: aac_${{steps.aac-version.outputs.VERSION_STRING}}_wheel
+          name: ${{ github.event.repository.name }}_${{steps.package-version.outputs.VERSION_STRING}}_wheel
           path: python/dist/
 
       - name: Build Documentation
@@ -53,7 +53,7 @@ jobs:
       - name: Upload Documentation
         uses: actions/upload-artifact@v4
         with:
-          name: aac_${{steps.aac-version.outputs.version_string}}_documentation
+          name: ${{ github.event.repository.name }}_${{steps.package-version.outputs.version_string}}_documentation
           path: |
             python/docs/doc_artifacts/api
             python/docs/doc_artifacts/project_documentation
@@ -65,6 +65,6 @@ jobs:
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
-          name: aac_${{steps.aac-version.outputs.version_string}}_documentation_pdf
+          name: ${{ github.event.repository.name }}_${{steps.package-version.outputs.version_string}}_documentation_pdf
           path: |
             docs/docs/simplepdf/Architecture-as-Code.pdf
