@@ -35,12 +35,12 @@ jobs:
       - name: Get Package Version
         id: aac-version
         run: |
-          echo "version_string=$(python -m aac version)" >> $GITHUB_ENV
+          echo "VERSION_STRING=$(python -m aac version)" >> $GITHUB_OUTPUT
 
       - name: Upload Python Wheel
         uses: actions/upload-artifact@v4
         with:
-          name: aac_${{env.version_string}}_wheel
+          name: aac_${{steps.aac-version.outputs.VERSION_STRING}}_wheel
           path: python/dist/
 
       - name: Build Documentation
