@@ -44,7 +44,7 @@ development_dependencies = [
     "mccabe >= 0.6.1",
     "mypy ~= 1.1.0",
     "mypy-extensions ~= 1.0.0",
-    "pycodestyle >= 2.8.0",
+    "pycodestyle ~= 2.8.0",
     "pyflakes ~= 2.4",
     "build ~= 1.0.0",
     "twine == 3.4.2",
