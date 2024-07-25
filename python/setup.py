@@ -24,15 +24,15 @@ runtime_dependencies = [
     "typing-extensions ~= 4.8.0",
     "pluggy ~= 1.0.0",
     "Jinja2 ~= 3.1.2",
-    "black ~= 22.3.0",
+    "black >= 22.3.0",
     "MarkupSafe ~= 2.1.1",
     "pygls ~= 0.13.1",
     "fastapi ~= 0.109.1",
-    "starlette ~= 0.22.0",
+    "starlette >= 0.22.0",
     "anyio < 5, ~= 3.6.2",
     "sniffio ~= 1.3.0",
     "uvicorn ~= 0.20.0",
-    "requests ~= 2.28.1",
+    "requests >= 2.28.1",
 ]
 
 development_dependencies = [
@@ -41,7 +41,7 @@ development_dependencies = [
     "tomli ~= 2.0.1",
     "platformdirs ~= 2.4",
     "coverage >= 6.0",
-    "mccabe ~= 0.6.1",
+    "mccabe >= 0.6.1",
     "mypy ~= 1.1.0",
     "mypy-extensions ~= 1.0.0",
     "pycodestyle ~= 2.8.0",
