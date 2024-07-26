@@ -1,4 +1,4 @@
-name: Build and Deploy Sphinx Documentation
+name: Build and Deploy Documentation Site
 on:
   # Call from main workflow
   workflow_call:
@@ -9,7 +9,7 @@ on:
 # Configuring starting working directory
 defaults:
   run:
-    working-directory: ./docs
+    working-directory: ./python
 
 # Set token permissions
 permissions:
@@ -41,12 +41,14 @@ jobs:
         run: pip install -e .[all]
 
       - name: Build Documentation
-        run: sphinx-build source doc_artifacts
+        run: |
+          cd ../docs
+          sphinx-build source doc_artifacts
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./doc_artifacts
+          path: ../docs/doc_artifacts
 
       - name: Deploy to GitHub Pages
         id: deploy
