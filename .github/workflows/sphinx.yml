@@ -37,16 +37,27 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Install the ${{ github.event.repository.name }} Package
+        run: pip install -e .[all]
+
+      # - name: Build Documentation
+      #   uses: ammaraskar/sphinx-action@0.4
+      #   with:
+      #     pre-build-command: "pip install aac"
+      #     docs-folder: "docs/"
+
       - name: Build Documentation
-        uses: ammaraskar/sphinx-action@0.4
-        with:
-          # pre-build-command: "pip install aac"
-          docs-folder: "docs/"
+        run: |
+          cp -R ../docs/ ./docs
+          cd ./docs
+          sphinx-build source doc_artifacts
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/docs/html
+          path: |
+            ./docs/doc_artifacts/api
+            ./docs/doc_artifacts/project_documentation
 
       - name: Deploy to GitHub Pages
         id: deploy
