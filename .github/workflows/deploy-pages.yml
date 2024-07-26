@@ -9,7 +9,7 @@ on:
 # Configuring starting working directory
 defaults:
   run:
-    working-directory: ./python
+    working-directory: .
 
 # Set token permissions
 permissions:
@@ -38,17 +38,19 @@ jobs:
         uses: actions/configure-pages@v5
 
       - name: Install the ${{ github.event.repository.name }} Package
-        run: pip install -e .[all]
+        run: |
+          cd ./python
+          pip install -e .[all]
 
       - name: Build ${{ github.event.repository.name }} Documentation
         run: |
-          cd ../docs
+          cd ./docs
           sphinx-build source doc_artifacts
 
       - name: Upload ${{ github.event.repository.name }} Documentation Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: python/docs/doc_artifacts
+          path: ./docs/doc_artifacts
 
       - name: Deploy to GitHub Pages
         id: deploy
