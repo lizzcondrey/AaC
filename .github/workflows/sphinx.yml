@@ -40,22 +40,15 @@ jobs:
       - name: Install the ${{ github.event.repository.name }} Package
         run: pip install -e .[all]
 
-      # - name: Build Documentation
-      #   uses: ammaraskar/sphinx-action@0.4
-      #   with:
-      #     pre-build-command: "pip install aac"
-      #     docs-folder: "docs/"
-
       - name: Build Documentation
         run: |
-          cp -R ../docs/ ./docs
           cd ./docs
           sphinx-build source doc_artifacts
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: python/docs/doc_artifacts
+          path: ./docs/doc_artifacts
 
       - name: Deploy to GitHub Pages
         id: deploy
