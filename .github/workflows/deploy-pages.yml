@@ -1,7 +1,8 @@
 name: Build and Deploy Documentation Site
 on:
   # Call from main workflow
-  workflow_call:
+  push:
+    branches: [main]
 
   # Manual runs
   workflow_dispatch:
