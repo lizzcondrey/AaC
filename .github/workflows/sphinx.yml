@@ -9,7 +9,7 @@ on:
 # Configuring starting working directory
 defaults:
   run:
-    working-directory: ./python
+    working-directory: ./docs
 
 # Set token permissions
 permissions:
@@ -41,14 +41,12 @@ jobs:
         run: pip install -e .[all]
 
       - name: Build Documentation
-        run: |
-          cd ./docs
-          sphinx-build source doc_artifacts
+        run: sphinx-build source doc_artifacts
 
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/doc_artifacts
+          path: ./doc_artifacts
 
       - name: Deploy to GitHub Pages
         id: deploy
