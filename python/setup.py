@@ -56,6 +56,7 @@ development_dependencies = [
 
 documentation_dependencies = [
     "sphinx >= 7.3.7",
+    "sphinx >= 7.3.7",
     "sphinxcontrib-applehelp ~= 1.0.2",
     "sphinxcontrib-devhelp ~= 1.0.2",
     "sphinxcontrib-htmlhelp ~= 2.0.0",
@@ -66,6 +67,7 @@ documentation_dependencies = [
     "sphinx_contributors ~= 0.2.7",
     "sphinx-autobuild ~= 2021.3.14",
     "sphinx-simplepdf ~= 1.6.0",
+    "furo ~= 2024.5.6",
     "furo ~= 2024.5.6",
     "docutils ~= 0.19",
     "myst-parser ~= 2.0.0",
