@@ -1,0 +1,17 @@
+sphinx>=6.1.3
+sphinxcontrib-applehelp~=1.0.2
+sphinxcontrib-devhelp~=1.0.2
+sphinxcontrib-htmlhelp~=2.0.0
+sphinxcontrib-jsmath~=1.0.1
+sphinxcontrib-qthelp~=1.0.3
+sphinxcontrib-serializinghtml~=1.1.9
+sphinx-copybutton~=0.5.2
+sphinx_contributors~=0.2.7
+sphinx-autobuild~=2021.3.14
+sphinx-simplepdf~=1.6.0
+furo~=2024.7.18
+docutils~=0.19
+myst-parser~=2.0.0
+pytz~=2023.3
+aac>=0.4.0
+

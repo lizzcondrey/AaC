@@ -24,9 +24,9 @@ runtime_dependencies = [
     "typing-extensions ~= 4.8.0",
     "pluggy ~= 1.0.0",
     "Jinja2 ~= 3.1.2",
-    "black >= 23.9.1",
+    "black >= 22.3.0",
     "MarkupSafe ~= 2.1.1",
-    "pygls ~= 0.13.1",
+    "pygls >= 0.13.1",
     "fastapi ~= 0.109.1",
     "starlette >= 0.22.0",
     "anyio < 5, ~= 3.6.2",
@@ -37,7 +37,7 @@ runtime_dependencies = [
 
 development_dependencies = [
     "wheel ~= 0.42.0",
-    "pip-tools >= 6.9.0",
+    "pip-tools ~= 6.9.0",
     "tomli >= 2.0.1; python_version < '3.11'",
     "platformdirs >= 2.4",
     "coverage >= 6.0",
@@ -45,8 +45,8 @@ development_dependencies = [
     "mypy ~= 1.1.0",
     "mypy-extensions ~= 1.0.0",
     "pycodestyle >= 2.8.0",
-    "pyflakes >= 2.4",
-    "build >= 1.0.0",
+    "pyflakes ~= 2.4",
+    "build ~= 1.0.0",
     "twine == 3.4.2",
     "pipdeptree >= 2.2.0",
     "Pygments >= 2.5.1",
@@ -55,6 +55,7 @@ development_dependencies = [
 ]
 
 documentation_dependencies = [
+    "sphinx >= 7.3.7",
     "sphinx >= 7.3.7",
     "sphinxcontrib-applehelp ~= 1.0.2",
     "sphinxcontrib-devhelp ~= 1.0.2",
@@ -66,6 +67,7 @@ documentation_dependencies = [
     "sphinx_contributors ~= 0.2.7",
     "sphinx-autobuild ~= 2021.3.14",
     "sphinx-simplepdf ~= 1.6.0",
+    "furo ~= 2024.5.6",
     "furo ~= 2024.5.6",
     "docutils ~= 0.19",
     "myst-parser ~= 2.0.0",

@@ -23,13 +23,13 @@ jobs:
     needs: build_deployment_artifacts
     steps:
       - name: Download Python Wheel
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: aac_wheel
           path: python/dist/
 
-      - name: Publish distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@master
-        with:
-          password: ${{ secrets.PYPI_API_TOKEN }}
-          packages_dir: python/dist/
+      # - name: Publish distribution to PyPI
+      #   uses: pypa/gh-action-pypi-publish@master
+      #   with:
+      #     password: ${{ secrets.PYPI_API_TOKEN }}
+      #     packages_dir: python/dist/
