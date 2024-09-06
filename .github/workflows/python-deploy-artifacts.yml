@@ -1,12 +1,12 @@
 name: Deploy Python Artifacts
 
 on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - python/**
+  # workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - python/**
 
 defaults:
   run:
