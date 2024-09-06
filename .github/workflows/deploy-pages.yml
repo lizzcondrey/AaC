@@ -40,7 +40,7 @@ jobs:
       - name: Install the ${{ github.event.repository.name }} Package
         run: |
           # cd ./python
-          pip install ./python .[all]
+          pip install ./python[all]
 
       - name: Build ${{ github.event.repository.name }} Documentation
         run: |
