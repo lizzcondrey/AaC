@@ -9,7 +9,7 @@ on:
 # Configuring starting working directory
 defaults:
   run:
-    working-directory: ./python
+    working-directory: .
 
 # Set token permissions
 permissions:
@@ -39,12 +39,12 @@ jobs:
 
       - name: Install the ${{ github.event.repository.name }} Package
         run: |
-          # cd ./python
-          pip install -e .[all]
+          cd ./python
+          python -m pip install -e .[all]
 
       - name: Build ${{ github.event.repository.name }} Documentation
         run: |
-          cd ../docs
+          cd ./docs
           sphinx-build source doc_artifacts
 
       - name: Upload ${{ github.event.repository.name }} Documentation Artifact
